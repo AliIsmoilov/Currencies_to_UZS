@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package currency;
+
+option  go_package = "app/currency";
+
+service CurrencyService {
+
+    rpc GetCurrency(Currency) returns (GetAllCurrencyRespone) {}
+
+}
+
+message Currency{
+    string currency = 1;
+}
+
+message CurrencyResponse{
+    int32 id = 1;
+    string code = 2;
+    string ccy = 3;
+    string ccyNm_RU = 4;
+    string ccyNm_UZ = 5;
+    string ccyNm_UZC = 6;
+    string ccyNm_EN = 7;
+    string nominal = 8;
+    string rate = 9;
+    string diff = 10;
+    string date =11;
+}
+
+message GetAllCurrencyRespone{
+    int32 count = 1;
+    repeated CurrencyResponse currencies =2;
+}
